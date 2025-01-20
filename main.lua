@@ -4,6 +4,7 @@ require "play"
 require "draw_play"
 require "animation_score"
 require "calcule_score"
+require "annonce"
 
 x = 100
 y = 100
@@ -30,7 +31,8 @@ function love.update(dt)
 	button_load()
 	animation_score_update()	
 	mous_on_case()
-	print (frame)
+	text_mouve()
+--	print (frame)
 --	print("x", x)
 --	print("y", y)
 end
@@ -38,6 +40,9 @@ end
 function love.keypressed(key)
     if key == "escape" then
         love.event.quit()
+	end
+	if key == "return" then
+		button_play()
 	end
 end
 
@@ -50,21 +55,12 @@ function love.draw()
 	end
 	anime_score(0)
 	curseur()
+	darw_annonce()
 	love.graphics.setBackgroundColor(getColor(color_background))
 end
 
 function love.mousepressed(x, y, button, istouch)
-	if frame >= 550 then
-		if x >= 300 and x <= 500 and y >= 450 and y <= 550 then
-			reset_hand()
-			reset_color()
-			is_play = 1
-			prepare_card_to_draw(0)
-			if frame > 100 then
-				frame = 1
-			end	
-		end
+	if x >= 300 and x <= 500 and y >= 450 and y <= 550 then
+		button_play()
 	end
-	print("x", x)
-	print("y", y)
 end

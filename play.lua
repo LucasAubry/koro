@@ -95,12 +95,16 @@ function anime_score(app)
 	stop_up = stop_up + 1
 	if carre == 1 then
 		carre_animation(carreau, coeur, pique, trefle, app)
+		change_texte_annonce("Carre")
 	elseif brelan == 1 then
 		brelan_animation(carreau, coeur, pique, trefle, app)
+		change_texte_annonce("Brelan")
 	elseif paire == 2 then
 		double_paire_animation(carreau, coeur, pique, trefle, app)
+		change_texte_annonce("Double Paire")
 	elseif paire == 1 then
 		paire_animation(carreau, coeur, pique, trefle, app)
+		change_texte_annonce("Paire")
 	else
 		nothing_animation(carreau, coeur, pique, trefle, app)
 	end

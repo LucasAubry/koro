@@ -35,3 +35,17 @@ function curseur()
 	love.graphics.setColor(getColor("SOFT_BLUE"))
 	love.graphics.rectangle("fill", mous_x -6, mous_y -7, 10, 10, 50)
 end
+
+function button_play()
+	if frame >= 550 then
+		reset_hand()
+		reset_color()
+		is_play = 1
+		prepare_card_to_draw(0)
+		if frame > 100 then
+			frame = 1
+		end	
+	end
+	print("y", y)
+	print("x", x)
+end
