@@ -40,7 +40,8 @@ function love.update(dt)
 --	print (frame)
 	print("x", x)
 	print("y", y)
-	update_mous_posi()
+	update_mouse_posi()
+	zoom()
 end
 
 function love.keypressed(key)

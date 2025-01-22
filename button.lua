@@ -87,12 +87,26 @@ function button_play()
 	print("x", x)
 end
 
-mouse_posi_y = 0
-function update_mous_posi()
+function update_mouse_posi()
 	if boul == 1 then
-		mouse_posi_y = mouse_y - 35
+		if mouse_y >= 300 and mouse_y <= 500 then
+			mouse_posi_y = mouse_y - 40
+		end
+	elseif boul == 0 then
+		local a, b, c = 290, 365, 440
+		local closest = a
+		local min_distance = math.abs(mouse_posi_y - a)
+		if math.abs(mouse_posi_y - b) < min_distance then
+			closest = b
+			min_distance = math.abs(mouse_posi_y - b)
+		end
+		if math.abs(mouse_posi_y - c) < min_distance then
+			closest = c
+		end
+		mouse_posi_y = closest
 	end
 end
+
 
 
 function curseur()
