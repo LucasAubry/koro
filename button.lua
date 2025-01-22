@@ -46,7 +46,7 @@ function autoplay_button_draw()
 	if is_select == 1 or is_select == 2 then
 	
 		love.graphics.setColor(getColor("LIGHT_BLUE"))
-		love.graphics.rectangle("fill", 535, 517, 60, 30, 10)
+		love.graphics.rectangle("fill", 535, 515, 60, 30, 10)
 		if is_select == 1 then
 			is_select = 0
 		end
@@ -87,9 +87,12 @@ function button_play()
 	print("x", x)
 end
 
-
-
-
+mouse_posi_y = 0
+function update_mous_posi()
+	if boul == 1 then
+		mouse_posi_y = mouse_y - 35
+	end
+end
 
 
 function curseur()

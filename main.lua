@@ -5,6 +5,7 @@ require "draw_play"
 require "animation_score"
 require "calcule_score"
 require "annonce"
+require "hud_play"
 
 x = 100
 y = 100
@@ -37,8 +38,9 @@ function love.update(dt)
 	mous_on_case()
 	text_mouve()
 --	print (frame)
-	--print("x", x)
---	print("y", y)
+	print("x", x)
+	print("y", y)
+	update_mous_posi()
 end
 
 function love.keypressed(key)
@@ -56,6 +58,7 @@ function love.draw()
 	if is_play == 1 then
 		color_background = "SOFT_GREEN"
 		play_game()
+		draw_hud_play()
 	end
 	anime_score(0)
 	curseur()
@@ -63,11 +66,19 @@ function love.draw()
 	love.graphics.setBackgroundColor(getColor(color_background))
 end
 
+boul = 0
 function love.mousepressed(x, y, button, istouch)
 	if x >= 300 and x <= 500 and y >= 450 and y <= 550 then
 		button_play()
 	end
 	if mouse_x >= 535 and mouse_x <= (535 + 60) and mouse_y >= 515 and mouse_y <= (515 + 30) then
 		button_autoplay()
+	end
+	if mouse_x >= 155 and mouse_x <= (155 + 40) and mouse_y >= mouse_posi_y and mouse_y <= (mouse_posi_y + 80) then -- autoplay button
+		if boul == 0 then
+			boul = 1
+		elseif boul == 1 then
+			boul = 0
+		end
 	end
 end

@@ -3,6 +3,7 @@ local colors = {
     RED = {1, 0, 0},
     GREEN = {0, 1, 0},
     SOFT_GREEN = {0.4, 0.6, 0.3},
+    DARK_GREEN = {0.3, 0.5, 0.3},
     BLUE = {0, 0, 1},
     LIGHT_BLUE = {0.5, 0.7, 1},
     SOFT_BLUE = {0.4, 0.6, 0.9},

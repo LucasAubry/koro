@@ -18,6 +18,8 @@ local carre = 0
 local brelan = 0
 local paire = 0
 
+mous_click_y = 0
+
 function play_game()
 	for _, c in ipairs(cards_to_draw) do
 		local random, x, y, scale = unpack(c)

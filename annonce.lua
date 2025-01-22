@@ -7,7 +7,7 @@ local texte_annonce = "Nothing"
 function darw_annonce()
 	love.graphics.setColor(getColor("DARK_GRAY"))
 	love.graphics.rectangle("fill", 2, 0, 797, 35, 5)
-	love.graphics.setColor(getColor("RED"))
+	love.graphics.setColor(getColor("BLACK"))
 	love.graphics.rectangle("line", 2, 3, 797, 33, 5)
 	print_texte_annonce()
 end
