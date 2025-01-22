@@ -2,7 +2,7 @@
 
 local x_texte = -300
 local y_texte = 3
-texte_annonce = "Nothing"
+local texte_annonce = "Nothing"
 
 function darw_annonce()
 	love.graphics.setColor(getColor("DARK_GRAY"))
@@ -28,7 +28,7 @@ end
 
 local texte_temp = "Nothing temp"
 function change_texte_annonce(new_texte)
-	if x_texte > 800 or x_texte < 0 then
+	if x_texte < 0 then
 		texte_annonce = texte_temp
 	end
 		texte_temp = new_texte

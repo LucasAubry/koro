@@ -1,9 +1,15 @@
 mouse_on = 0
+is_select = 0
 
 function button_load()
-	mous_x, mous_y = love.mouse.getPosition()
-	if mous_x >= 300 and mous_x <= 500 and mous_y >= 450 and mous_y <= 550 then
+	mouse_x, mouse_y = love.mouse.getPosition()
+	if mouse_x >= 300 and mouse_x <= 500 and mouse_y >= 450 and mouse_y <= 550 then -- play button
 		mouse_on = 1
+	end
+	if mouse_x >= 535 and mouse_x <= (535 + 60) and mouse_y >= 515 and mouse_y <= (515 + 30) then -- autoplay button
+		if is_select ~= 2 then
+			is_select = 1
+		end
 	end
 end
 
@@ -29,11 +35,42 @@ function button_draw()
 		
 		mouse_on = 0
 	end
+	autoplay_button_draw()
 end
 
-function curseur()
+function autoplay_button_draw()
+	love.graphics.setColor(getColor("LIGHT_GRAY"))
+	love.graphics.rectangle("fill", 535, 515, 60, 30, 10)
 	love.graphics.setColor(getColor("SOFT_BLUE"))
-	love.graphics.rectangle("fill", mous_x -6, mous_y -7, 10, 10, 50)
+	love.graphics.rectangle("line", 535, 515, 60, 30, 10)
+	if is_select == 1 or is_select == 2 then
+	
+		love.graphics.setColor(getColor("LIGHT_BLUE"))
+		love.graphics.rectangle("fill", 535, 517, 60, 30, 10)
+		if is_select == 1 then
+			is_select = 0
+		end
+	end
+	love.graphics.setColor(getColor("DARK_GRAY"))
+	litl_font = love.graphics.newFont("texture/Jersey15-Regular.ttf", 30)	
+	love.graphics.setFont(litl_font)
+	love.graphics.print("AUTO", 540, 515)
+end
+
+function button_autoplay()
+	if is_select == 2 then
+		is_select = 0
+	else
+		is_select = 2
+	end
+end
+
+function auto_play()
+	if is_select == 2 then
+		if frame > 600 then
+			button_play()
+		end
+	end
 end
 
 function button_play()
@@ -49,3 +86,15 @@ function button_play()
 	print("y", y)
 	print("x", x)
 end
+
+
+
+
+
+
+function curseur()
+	love.graphics.setColor(getColor("SOFT_BLUE"))
+	love.graphics.rectangle("fill", mous_x -6, mous_y -7, 10, 10, 50)
+end
+
+

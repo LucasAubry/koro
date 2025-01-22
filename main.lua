@@ -24,16 +24,20 @@ end
 
 stop_up = 0
 function love.update(dt)
+	if is_play == nil then
+		change_texte_annonce("Bonjour")
+	end
 	if love.keyboard.isDown("up") then y = y - 5 end
     if love.keyboard.isDown("down") then y = y + 5 end
     if love.keyboard.isDown("left") then x = x - 5 end
     if love.keyboard.isDown("right") then x = x + 5 end
 	button_load()
+	auto_play()
 	animation_score_update()	
 	mous_on_case()
 	text_mouve()
 --	print (frame)
---	print("x", x)
+	--print("x", x)
 --	print("y", y)
 end
 
@@ -42,7 +46,7 @@ function love.keypressed(key)
         love.event.quit()
 	end
 	if key == "return" then
-		button_play()
+		button_autoplay()
 	end
 end
 
@@ -62,5 +66,8 @@ end
 function love.mousepressed(x, y, button, istouch)
 	if x >= 300 and x <= 500 and y >= 450 and y <= 550 then
 		button_play()
+	end
+	if mouse_x >= 535 and mouse_x <= (535 + 60) and mouse_y >= 515 and mouse_y <= (515 + 30) then
+		button_autoplay()
 	end
 end
